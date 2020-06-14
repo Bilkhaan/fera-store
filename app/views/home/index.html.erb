@@ -1,21 +1,33 @@
-<h2>Products</h2>
-
-<ul>
-  <% @products.each do |product| %>
-    <li><%= link_to product.title, "https://#{@current_shopify_session.domain}/admin/products/#{product.id}", target: "_top" %></li>
-  <% end %>
-</ul>
-
-<hr>
-
-<h2>Webhooks</h2>
-
-<% if @webhooks.present? %>
-  <ul>
-    <% @webhooks.each do |webhook| %>
-      <li><%= webhook.topic %> : <%= webhook.address %></li>
+<div class="orders-container">
+  <div class="row">
+    <% @orders.each do |order| %>
+      <div class="col-sm-12 col-md-6 col-lg-6 card-container">
+        <div class="card card--style">
+          <div class="card-body">
+            <span class="card-title">
+              <strong><%= order.ordered_by %></strong>
+              made a narwhal order
+            </span>
+            <span class="card-text d-block card__order-no">ORDER #<%= order.order_number %></span>
+          </div>
+          <%= image_tag "narwal_flag.svg", class: 'card__narwhal-badge' %>
+        </div>
+      </div>
     <% end %>
-  </ul>
-<% else %>
-  <p>This app has not created any webhooks for this Shop. Add webhooks to your ShopifyApp initializer if you need webhooks</p>
+
+    <div class="col-12">
+      <%= paginate @orders, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b" %>
+    </div>
+  </div>
+</div>
+
+<% if @orders.empty? %>
+  <div class="d-flex justify-content-center align-items-center p-3">
+    <h1 class="mr-3 pr-3 align-top border-right inline-block align-content-center">Keep Calm</h1>
+    <div class="inline-block align-middle">
+      <h2 class="font-weight-normal lead" id="desc">There are no Narwhal orders yet!.</h2>
+    </div>
+  </div>
 <% end %>
+
+
