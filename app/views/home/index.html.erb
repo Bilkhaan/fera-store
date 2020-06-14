@@ -15,14 +15,14 @@
       </div>
     <% end %>
 
-    <div class="col-12">
+    <div class="col-12 mt-5">
       <%= paginate @orders, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b" %>
     </div>
   </div>
 </div>
 
 <% if @orders.empty? %>
-  <div class="d-flex justify-content-center align-items-center p-3">
+  <div class="d-flex justify-content-center align-items-center p-3 mt-2">
     <h1 class="mr-3 pr-3 align-top border-right inline-block align-content-center">Keep Calm</h1>
     <div class="inline-block align-middle">
       <h2 class="font-weight-normal lead" id="desc">There are no Narwhal orders yet!.</h2>
