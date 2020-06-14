@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application is deployed on heroku and here is the [Link](https://fera-store-front.herokuapp.com/)
+I have created my own partner account and setup an application named "Fera Store". The credsentials for my accounts are:
 
-Things you may want to cover:
 
-* Ruby version
+Email: bilalkhan4269@gmail.com
+password: fera@ai123#
 
-* System dependencies
 
-* Configuration
+You can create new development store and install app on them and create orders.
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Requirements:
+I have added functionality to create orders for a particular store only if its contains "Narwhal" in title/name.
