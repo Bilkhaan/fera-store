@@ -27,7 +27,7 @@ class OrdersService
     def ordered_by(customer_data)
       return 'Customer' if customer_data.nil?
 
-      customer_name = [customer_data[:fisrt_name], customer_data[:last_name]].join(' ').strip
+      customer_name = [customer_data[:first_name], customer_data[:last_name]].join(' ').strip
       customer_name = customer_data[:email] if customer_name.blank?
       customer_name = customer_data[:phone] if customer_name.blank?
 
