@@ -1,33 +1,31 @@
-<div class="orders-container">
-  <div class="row">
-    <% @orders.each do |order| %>
-      <div class="col-sm-12 col-md-6 col-lg-6 card-container">
-        <div class="card card--style">
-          <div class="card-body">
-            <span class="card-title">
-              <strong><%= order.ordered_by %></strong>
-              made a narwhal order
-            </span>
-            <span class="card-text d-block card__order-no">ORDER #<%= order.order_number %></span>
+<% if @orders.present? %>
+  <div class="orders-container">
+    <div class="row">
+      <% @orders.each do |order| %>
+        <div class="col-sm-12 col-md-6 col-lg-6 card-container">
+          <div class="card card--style">
+            <div class="card-body">
+              <span class="card-title">
+                <strong><%= order.ordered_by %></strong>
+                made a narwhal order
+              </span>
+              <span class="card-text d-block card__order-no">ORDER #<%= order.order_number %></span>
+            </div>
+            <%= image_tag "narwal_flag.svg", class: 'card__narwhal-badge' %>
           </div>
-          <%= image_tag "narwal_flag.svg", class: 'card__narwhal-badge' %>
         </div>
-      </div>
-    <% end %>
+      <% end %>
 
-    <div class="col-12 mt-5">
-      <%= paginate @orders, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b" %>
+      <div class="col-12 mt-5">
+        <%= paginate @orders, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b" %>
+      </div>
     </div>
   </div>
-</div>
-
-<% if @orders.empty? %>
-  <div class="d-flex justify-content-center align-items-center p-3 mt-2">
+<% else %>
+  <div class="d-flex justify-content-center align-items-center p-3 mt-5">
     <h1 class="mr-3 pr-3 align-top border-right inline-block align-content-center">Keep Calm</h1>
     <div class="inline-block align-middle">
       <h2 class="font-weight-normal lead" id="desc">There are no Narwhal orders yet!.</h2>
     </div>
   </div>
 <% end %>
-
-
